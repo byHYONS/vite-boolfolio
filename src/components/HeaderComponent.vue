@@ -2,10 +2,7 @@
 <script>
 
 export default {
-   nome: 'NewComponent',
-   props: {
-
-   },
+   name: 'HeaderComponent',
    data(){
       return{
 
@@ -24,7 +21,7 @@ export default {
 
 <header>
     <div class="container">
-        <img src="../../public/favicon/byh.svg" alt="logo">
+        
     </div>
 </header>
 
