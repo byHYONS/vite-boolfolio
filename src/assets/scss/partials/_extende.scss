@@ -1,2 +1,10 @@
-// %nomeExtende ~ @extende:
+/* --------------------------------
+     *       EXTENDE
+-------------------------------- */
 
+//? %nomeExtende ~ @extende:
+@import './variables';
+
+%shadow {
+    box-shadow: 1px 5px 10px rgba($shodow , $alpha);
+}

@@ -1,7 +1,7 @@
 <script>
 
-import HeaderComponent from './components/HeaderComponent.vue';
-import FooterComponent from './components/FooterComponent.vue';
+import HeaderComponent from './shared/HeaderComponent.vue';
+import FooterComponent from './shared/FooterComponent.vue';
 
 export default {
    name: 'App',

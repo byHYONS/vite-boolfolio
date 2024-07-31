@@ -3,8 +3,8 @@
 export default {
     name: 'ProjectCard',
     props: {
-        cards: Array,
-},
+        cards: Object,
+    },
 data(){
    return{
 
@@ -20,7 +20,9 @@ components: {
 <template>
 
     <div class="card">
-        {{ cards }}
+       <p> {{ cards.title }}</p>
+       <p> {{ cards.slug }}</p>
+
     </div>
 
 </template>

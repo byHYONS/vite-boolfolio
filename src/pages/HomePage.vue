@@ -6,9 +6,6 @@ import { store } from '../store';
 
 export default {
    name: 'HomePage',
-   props: {
-
-   },
    data(){
       return{
        store,
@@ -23,7 +20,7 @@ export default {
    },
    methods: {
         apiCall() {
-            const {url} = this.store.apiInfo
+            const { url } = this.store.apiInfo
 
             console.log('sono l\'apiCall')
             axios
@@ -50,13 +47,11 @@ export default {
 <main>
 
     <div class="container">
-       <div class="row">
-        <div class="content" v-if="projects.length">
+       <div class="row list">
             
-            <ProjectCard v-for="project in projects" :key="proje.id"
-            :cards="project" />
-          
-        </div>
+            <ProjectCard v-for="project in projects" :key="project"
+            :cards="project" class="cards"/>
+
        </div>
     </div>
 
@@ -74,11 +69,8 @@ main {
     width: 100vw;
     height: 10vh;
     align-content: center;
-    .content {
+    .cards {
         width: calc(100% / 4);
-        .card {
-
-        }
         
     }
 }
