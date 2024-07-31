@@ -30,7 +30,7 @@ Gestire la paginazione dei risultati.
 
 ### Prosecuzione dell'esercitazione:
 
-Ttask da completare:
+Task da completare:
 - aggiungere una pagina di dettaglio di progetto (frontend);
 - aggiungere sistema di paginazione (frontend);
 - La pagina di dettaglio dovrà avere tutte le informazioni del progetto e le informazioni relazionate.

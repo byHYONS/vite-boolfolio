@@ -63,15 +63,17 @@ export default {
 
 
 <style lang="scss" scoped>
-// import
+// import:
 
 main {
     width: 100vw;
-    height: 10vh;
     align-content: center;
-    .cards {
-        width: calc(100% / 4);
-        
+    .container {
+        padding: 35px 0 50px;
+        .cards {
+            width: calc(100% / 4);
+            
+        }
     }
 }
 
