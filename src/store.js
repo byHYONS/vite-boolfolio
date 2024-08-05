@@ -3,9 +3,11 @@ import { reactive } from "vue";
 
 export const store = reactive({
     text: 'Hello World!',
-    apiInfo: {
-        url: 'http://localhost:8000/api/project',
-        
+    apiInfo: {    
+        baseUrl: 'http://localhost:8000/api/',
+        endPoints: {
+            projectList: 'project',
+        }      
     }
     
 

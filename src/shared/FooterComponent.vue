@@ -153,6 +153,9 @@ footer {
                .col-12 {
                     text-align: center;
                     margin-bottom: 50px;
+                    .logo_byhyons {
+                        margin: auto;
+                    }
                     .logo-social {
                         width: 30%;
                         margin: 0 auto;
@@ -178,6 +181,7 @@ footer {
                     .logo-social {
                         width: 30%;
                         margin: 0 auto;
+                        
                     }
                 }
             }

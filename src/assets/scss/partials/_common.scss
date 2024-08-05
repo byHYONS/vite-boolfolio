@@ -3,6 +3,8 @@
 -------------------------------- */
 @use './variables' as *;
 
+[v-clock] {display: none;}
+
 main {
     // overflow: auto;
     width: 100vw;

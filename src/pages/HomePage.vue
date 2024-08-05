@@ -11,6 +11,7 @@ export default {
        store,
        axios,
        projects: [],
+       currentPage: 1,
 
       }
    },
@@ -20,17 +21,32 @@ export default {
    },
    methods: {
         apiCall() {
-            const { url } = this.store.apiInfo
+            const { baseUrl, endPoints } = this.store.apiInfo;
+            const url = baseUrl + endPoints.projectList;
 
             console.log('sono l\'apiCall')
             axios
-            .get(url)
+            .get(url, {
+                params: {
+                    page: this.currentPage,
+                }
+            })
             .then(Response => {
                 console.log(Response.data.results);
                 this.projects = Response.data.results;
-                console.log(this.projects[0].title)
+                console.log(projects);
+                return
             })
+            .catch((error) => console.log(error));
         },
+        prevPage() {
+            this.currentPage--;
+            this.apiCall();
+        },
+        nextPage() {
+            this.currentPage++;
+            this.apiCall();
+        }
     },
     created() {
         this.apiCall()
@@ -49,8 +65,19 @@ export default {
     <div class="container">
        <div class="row list">
             
-            <ProjectCard v-for="project in projects" :key="project"
-            :cards="project" class="cards"/>
+            <!--? componente  -->
+            <ProjectCard v-for="project in projects.data" :key="project"
+            :cards="project" class="col-12 col-md-6 col-lg-4"/>
+
+            <!--? bottoni per la navigazione -->
+            <div class="page">
+                <button @click="prevPage" class="mr-25" v-if="projects?.prev_page_url">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button @click="nextPage" v-if="projects?.next_page_url">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
 
        </div>
     </div>
@@ -64,16 +91,31 @@ export default {
 
 <style lang="scss" scoped>
 // import:
+@use '../assets/scss/partials/extende' as *;
 
 main {
     width: 100vw;
     align-content: center;
     .container {
         padding: 35px 0 50px;
-        .cards {
-            width: calc(100% / 4);
-            
+
+        .page {
+            text-align: center;
+            margin: 35px 0 50px;
+
+
+            button {
+                text-align: center;
+                padding: 10px 35px;
+                background-color: $btn;
+                color: $table;
+                border-radius: 10px;
+                border: none;
+                @extend %shadow;
+                &:hover {background-color: $h_1;}
+            }
         }
+        
     }
 }
 
