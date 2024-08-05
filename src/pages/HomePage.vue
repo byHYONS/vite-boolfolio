@@ -31,9 +31,9 @@ export default {
                     page: this.currentPage,
                 }
             })
-            .then(Response => {
-                console.log(Response.data.results);
-                this.projects = Response.data.results;
+            .then(response => {
+                console.log(response.data.results);
+                this.projects = response.data.results;
                 console.log(projects);
                 return
             })

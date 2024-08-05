@@ -1,18 +1,34 @@
 <script>
 
+
 export default {
     name: 'ProjectCard',
     props: {
         cards: Object,
     },
-data(){
-   return{
+   
+    components: {
 
-   }
-},
-components: {
+    },
+    methods: {
+        openShow() {
+            console.log('indirizzo alla show');
 
-}
+            this.$router.push({ name: 'detail', params: {slug: this.cards.slug}});
+            
+        }
+    },
+    computed: {
+        getTitleInType() {
+            for (let key in this.cards.type) {
+                console.log(key) 
+                if (key === 'title') {
+                    return this.cards.type[key];
+                }
+            }
+            return null;
+        }
+    }
 }
 
 </script>
@@ -20,13 +36,14 @@ components: {
 <template>
 
     <div class="item">
-        <div class="item_card">
+        <div class="item_card" @click="openShow">
             <div class="card_image">
                 <img :src="cards.image_frontend ? cards.image_frontend : '/img/no-image.webp'" 
                 :alt="cards.title">
             </div>
            <p class="mt-4"><span>Titolo: </span> {{ cards.title }}</p>
-           <p><span>Categoria: </span> {{ cards.market_category }}</p>
+           <p v-if="cards.market_category"><span>Categoria: </span> {{ cards.market_category }}</p>
+           <p v-if="getTitleInType"><span>Tipo Cliente: </span> {{ getTitleInType }}</p>
         </div>
     </div>
 
@@ -49,6 +66,7 @@ components: {
         border-radius: 15px;
         overflow: scroll;
         @extend %shadow;
+        cursor: pointer;
         span {
             color: $h_1;
             font-weight: 600;
